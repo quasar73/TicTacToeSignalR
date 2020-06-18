@@ -1,0 +1,48 @@
+﻿@model GameLobby
+@{
+    ViewData["Title"] = "Game";
+    Layout = "~/Views/Shared/_InGameLayout.cshtml";
+}
+
+<style>
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    td {
+        height: 64px;
+        width: 64px;
+        text-align: center;
+    }
+</style>
+<img src="~/img/cross.png" alt="space" id="cross" onclick="dostep(this)" hidden="hidden" />
+<img src="~/img/circle.png" alt="space" id="circle" onclick="dostep(this)" hidden="hidden" />
+<input type="hidden" value="@Model.Id" id="lobbyId" />
+<input type="hidden" value="false" id="readyId" />
+<input type="hidden" value="false" id="myturnId" />
+<div class="container">
+    <button class="btn btn-outline-info mb-3" onclick="Ready(this)" id="infoButton">Ready</button>
+</div>
+<div class="container">
+    <table class="table table-bordered">
+        <tr>
+            <td><img src="~/img/square.png" alt="space" id="0" onclick="dostep(this)" /></td>
+            <td><img src="~/img/square.png" alt="space" id="1" onclick="dostep(this)" /></td>
+            <td><img src="~/img/square.png" alt="space" id="2" onclick="dostep(this)" /></td>
+        </tr>
+        <tr>
+            <td><img src="~/img/square.png" alt="space" id="3" onclick="dostep(this)" /></td>
+            <td><img src="~/img/square.png" alt="space" id="4" onclick="dostep(this)" /></td>
+            <td><img src="~/img/square.png" alt="space" id="5" onclick="dostep(this)" /></td>
+        </tr>
+        <tr>
+            <td><img src="~/img/square.png" alt="space" id="6" onclick="dostep(this)" /></td>
+            <td><img src="~/img/square.png" alt="space" id="7" onclick="dostep(this)" /></td>
+            <td><img src="~/img/square.png" alt="space" id="8" onclick="dostep(this)" /></td>
+        </tr>
+    </table>
+</div>
+<script src="~/js/signalr/dist/browser/signalr.min.js"></script>
+<script src="~/js/gamescript.js"></script>

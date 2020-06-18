@@ -1,0 +1,26 @@
+﻿@model List<GameLobby>
+@{
+    ViewData["Title"] = "Main";
+}
+<div class="container">
+    <div class="row" id="mainContainer" >
+        @for(int i = 0; i < Model.Count; i++)
+        {
+            if (!Model[i].IsReady)
+            {
+            <div class="col-2 mt-3">
+                <div class="bg-info text-light d-flex justify-content-center text-center card" style="height: 64px" id="@(i + 1)" onclick="redirectToGame(this)">
+                    Game #@(i + 1)
+                </div>
+            </div>
+            }
+        }
+    </div>
+</div>
+<script src="js/signalr/dist/browser/signalr.min.js"></script>
+<script>
+    function redirectToGame(sender) {
+    window.location.href = "home/game/" + sender.id;
+}
+</script>
+<script src="~/js/hubscript.js"></script>
